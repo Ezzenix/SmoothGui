@@ -1,10 +1,10 @@
 # Smooth Gui
 
-This is a Minecraft fabric mod that makes GUI open with a smooth animation.
+Minecraft Fabric mod that makes GUI open with a smooth animation.
 
 ### Installation
 
-https://modrinth.com/mod/smoothgui/versions
+https://modrinth.com/mod/smooth-gui/versions
 
 ### Preview
 
