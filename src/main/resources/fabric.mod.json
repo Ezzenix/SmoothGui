@@ -1,0 +1,29 @@
+{
+	"schemaVersion": 1,
+	"id": "smoothgui",
+	"version": "${version}",
+	"name": "SmoothGui",
+	"description": "Adds animation to gui opening.",
+	"authors": [
+		"Ezzenix"
+	],
+	"contact": {
+		"sources": "https://github.com/Ezzenix/SmoothGui"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/smoothgui/icon.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+          "ezzenix.smoothgui.SmoothGui"
+		]
+	},
+	"mixins": [
+		"smoothgui.mixins.json"
+	],
+	"depends": {
+		"fabricloader": ">=0.15.2",
+		"minecraft": "1.20.x",
+		"java": ">=17"
+	}
+}

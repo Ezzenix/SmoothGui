@@ -1,0 +1,23 @@
+{
+	"required": true,
+	"package": "ezzenix.smoothgui.mixin",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [
+	],
+	"injectors": {
+		"defaultRequire": 1
+	},
+	"client": [
+		"HandledScreenMixin",
+		"KeybindsScreenMixin",
+		"LanguageOptionsScreenMixin",
+		"MouseOptionsScreenMixin",
+		"RecipeBookMixin",
+      "TexturedButtonWidgetMixin",
+		"ResourcePackOptionsScreenMixin",
+		"ScreenMixin",
+		"SimpleOptionsScreenMixin",
+		"SoundOptionsScreenMixin",
+		"VideoOptionsScreenMixin"
+	]
+}
