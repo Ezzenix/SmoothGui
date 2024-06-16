@@ -19,16 +19,19 @@ public class SmoothGui implements ModInitializer {
 	public static long lastGuiOpenedTime = 0;
 
 	private static float easeInBack(float t) {
-		float c1 = 1.70158f;
-		float c3 = c1 + 1;
-		return c3 * t * t * t - c1 * t * t;
+//		float c1 = 1.70158f;
+//		float c3 = c1 + 1;
+//		return c3 * t * t * t - c1 * t * t;
+		return (float) (1 - Math.sqrt(1 - Math.pow(t, 2)));
 	}
 
 	public static float getOffsetY() {
 		MinecraftClient client = MinecraftClient.getInstance();
 
-		float FADE_TIME = 220;
-		float FADE_OFFSET = 9;
+//		float FADE_TIME = 220;
+		float FADE_TIME = 500;
+//		float FADE_OFFSET = 9;
+		float FADE_OFFSET = 50;
 
 		float screenFactor = (float)client.getWindow().getHeight() / 1080;
 		float timeSinceOpen = Math.min((float)(System.currentTimeMillis() - SmoothGui.lastGuiOpenedTime), FADE_TIME);

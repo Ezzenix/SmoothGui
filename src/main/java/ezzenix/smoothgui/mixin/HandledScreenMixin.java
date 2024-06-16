@@ -16,24 +16,54 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 @Environment(EnvType.CLIENT)
 @Mixin(HandledScreen.class)
 public class HandledScreenMixin {
+    DrawContext drawContext;
+
     // Offset screen rendering
     @Inject(method="render", at=@At("HEAD"))
     private void onRender(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        drawContext = context;
+
         if (SmoothGui.isInMenu()) return;
-        context.getMatrices().translate(0.0, SmoothGui.getOffsetY(), 0.0);
+//        context.getMatrices().translate(0.0, SmoothGui.getOffsetY(), 0.0);
     }
     @Inject(method="render", at=@At("TAIL"))
     private void onRenderEnd(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (SmoothGui.isInMenu()) return;
-        context.getMatrices().translate(0.0, -SmoothGui.getOffsetY(), 0.0);
+//        context.getMatrices().translate(0.0, -SmoothGui.getOffsetY(), 0.0);
     }
 
     // Make background not affected
     @Inject(method="renderBackground", at=@At("HEAD"))
     private void onRenderBackground(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
+        drawContext = context;
+
         if (SmoothGui.isInMenu()) return;
         context.getMatrices().translate(0.0, -SmoothGui.getOffsetY(), 0.0);
     }
+
+//    @Inject(method="renderBackground", at=@At(value="INVOKE",
+//            target="Lnet/minecraft/client/gui/screen/ingame/HandledScreen;renderInGameBackground(Lnet/minecraft/client/gui/DrawContext;)V"))
+//    private void beforeRenderInGameBackground(CallbackInfo ci) {
+//        if (SmoothGui.isInMenu()) return;
+//        drawContext.getMatrices().translate(0.0, SmoothGui.getOffsetY(), 0.0);
+//    }
+
+    @Inject(method="renderBackground", at=@At(value="INVOKE",
+            target="Lnet/minecraft/client/gui/screen/ingame/HandledScreen;renderInGameBackground(Lnet/minecraft/client/gui/DrawContext;)V",
+            shift=At.Shift.AFTER))
+    private void afterRenderInGameBackground(CallbackInfo ci) {
+        if (SmoothGui.isInMenu()) return;
+        drawContext.getMatrices().translate(0.0, SmoothGui.getOffsetY(), 0.0);
+    }
+
+//    @Inject(method="renderBackground", at=@At(value="INVOKE",
+//            target="Lnet/minecraft/client/gui/screen/Screen;renderDarkening(Lnet/minecraft/client/gui/DrawContext;)V",
+//            shift=At.Shift.AFTER))
+//    private void afterRenderDarkening(CallbackInfo ci) {
+//        if (SmoothGui.isInMenu()) return;
+//        drawContext.getMatrices().translate(0.0, SmoothGui.getOffsetY(), 0.0);
+//    }
+
     @Inject(method="renderBackground", at=@At("TAIL"))
     private void onRenderBackgroundEnd(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (SmoothGui.isInMenu()) return;
