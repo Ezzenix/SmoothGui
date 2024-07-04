@@ -48,6 +48,15 @@ processResources {
 	}
 }
 
+sourceSets {
+	main {
+		resources {
+			exclude 'assets/smoothgui/preview.gif'
+			exclude 'assets/smoothgui/preview-minified.gif'
+		}
+	}
+}
+
 tasks.withType(JavaCompile).configureEach {
 	it.options.release = 21
 }
