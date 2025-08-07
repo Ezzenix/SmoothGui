@@ -1,22 +1,15 @@
 package ezzenix.smoothgui;
 
 import net.fabricmc.api.ModInitializer;
-
 import net.minecraft.client.MinecraftClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import net.minecraft.client.gui.DrawContext;
 
 public class SmoothGui implements ModInitializer {
-	public static final String MOD_ID = "smoothgui";
-	public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+	public static long lastGuiOpenedTime = 0;
+	private static float appliedOffset = 0f;
 
 	@Override
-	public void onInitialize() {
-		LOGGER.info("SmoothGui initialized!");
-	}
-
-	//
-	public static long lastGuiOpenedTime = 0;
+	public void onInitialize() { }
 
 	private static float easeInBack(float t) {
 		float c1 = 1.70158f;
@@ -24,13 +17,13 @@ public class SmoothGui implements ModInitializer {
 		return c3 * t * t * t - c1 * t * t;
 	}
 
-	public static float getOffsetY() {
+	private static float getOffsetY() {
 		MinecraftClient client = MinecraftClient.getInstance();
 
 		float FADE_TIME = 220;
 		float FADE_OFFSET = 9;
 
-		float screenFactor = (float)client.getWindow().getHeight() / 1080;
+		float screenFactor = (float)(Math.max(client.getWindow().getHeight(), 512)) / 1080f;
 		float timeSinceOpen = Math.min((float)(System.currentTimeMillis() - SmoothGui.lastGuiOpenedTime), FADE_TIME);
 		float alpha = 1 - (timeSinceOpen/FADE_TIME);
 		float modifiedAlpha = easeInBack(alpha);
@@ -38,8 +31,20 @@ public class SmoothGui implements ModInitializer {
 		return modifiedAlpha * FADE_OFFSET * screenFactor;
 	}
 
-	public static boolean isInMenu() {
+	private static boolean isInMainMenu() {
 		MinecraftClient client = MinecraftClient.getInstance();
 		return client.world == null && client.player == null;
+	}
+
+	public static void push(DrawContext context) {
+		if (isInMainMenu()) return;
+		appliedOffset = getOffsetY();
+		context.getMatrices().translate(0f, -appliedOffset);
+	}
+
+	public static void pop(DrawContext context) {
+		if (isInMainMenu()) return;
+		context.getMatrices().translate(0f, appliedOffset);
+		appliedOffset = 0f;
 	}
 }

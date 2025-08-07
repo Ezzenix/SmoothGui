@@ -10,7 +10,7 @@
   "client": [
     "HandledScreenMixin",
     "RecipeBookMixin",
-    "TexturedButtonWidgetMixin",
-    "ScreenMixin"
+    "ScreenMixin",
+    "TexturedButtonWidgetMixin"
   ]
 }
