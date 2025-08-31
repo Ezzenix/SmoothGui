@@ -9,6 +9,7 @@
   },
   "client": [
     "HandledScreenMixin",
+    "MinecraftClientMixin",
     "RecipeBookMixin",
     "ScreenMixin",
     "TexturedButtonWidgetMixin"

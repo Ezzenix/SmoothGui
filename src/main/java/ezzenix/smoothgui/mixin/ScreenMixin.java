@@ -23,16 +23,11 @@ public class ScreenMixin {
         if (MinecraftClient.getInstance().currentScreen instanceof BeaconScreen) return;
         SmoothGui.push(context);
     }
+
     @Inject(method="render", at=@At("TAIL"))
     private void onRenderEnd(DrawContext context, int mouseX, int mouseY, float delta, CallbackInfo ci) {
         if (MinecraftClient.getInstance().currentScreen instanceof ChatScreen) return;
         if (MinecraftClient.getInstance().currentScreen instanceof BeaconScreen) return;
         SmoothGui.pop(context);
-    }
-
-    // Track when new screens are opened
-    @Inject(method="onDisplayed", at=@At("HEAD"))
-    private void onDisplayed(CallbackInfo ci) {
-        SmoothGui.lastGuiOpenedTime = System.currentTimeMillis();
     }
 }
