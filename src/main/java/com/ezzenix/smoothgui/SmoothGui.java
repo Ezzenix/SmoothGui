@@ -76,7 +76,7 @@ public class SmoothGui implements ModInitializer {
 	}
 
 	public static void onRender(Screen screen) {
-		displacement = shouldAnimateScreen(screen) ? calculateDisplacement() : 0;
+		displacement = (ModConfig.enableAnimation && shouldAnimateScreen(screen)) ? calculateDisplacement() : 0;
 	}
 
 	public static void onRenderEnd(GuiGraphicsExtractor context) {
