@@ -195,7 +195,7 @@ public class SmoothGui implements ModInitializer {
 
 		net.minecraftforge.fml.ModLoadingContext.get().registerExtensionPoint(
 			ConfigScreenHandler.ConfigScreenFactory.class,
-			() -> new ConfigScreenHandler.ConfigScreenFactory((c, parent) -> new ConfigScreen(parent))
+			() -> new ConfigScreenHandler.ConfigScreenFactory((c, parent) -> new SmoothConfigScreen(parent))
 		);
     }
     *///? }
