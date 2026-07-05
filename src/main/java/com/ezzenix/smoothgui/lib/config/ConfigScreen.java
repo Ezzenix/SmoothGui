@@ -101,7 +101,7 @@ public class ConfigScreen extends Screen {
 				this.list.add(List.of(button, resetButton), info);
 			} else if (info.getType() == int.class || info.getType() == float.class || info.getType() == double.class) {
 				/* number slider */
-				double normalized = (Double.parseDouble(info.getValue().toString())) / (info.entry.max() - info.entry.min());
+				double normalized = (Double.parseDouble(info.getValue().toString()) - info.entry.min()) / (info.entry.max() - info.entry.min());
 				ConfigSliderWidget slider = new ConfigSliderWidget(buttonLeftX, 0, BUTTON_WIDTH, 20, normalized, info);
 				slider.setTooltip(info.getTooltip());
 
