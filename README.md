@@ -14,6 +14,6 @@ Makes GUIs open with a smooth animation.
 
 <br><br>
 
-<img src="https://cdn.modrinth.com/data/j6yrZogB/images/c1c8a04258462631dae8a36cb7ca57d68b9c7707.gif" width=70%></img>
+<img src="https://cdn.modrinth.com/data/j6yrZogB/images/ac59fa07db4e35433a7f5434e32ddbb7f2a17b8f.gif" width=90%></img>
 
 </div>
