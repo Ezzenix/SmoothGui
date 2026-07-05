@@ -1,0 +1,33 @@
+{
+	"schemaVersion": 1,
+	"id": "${id}",
+	"version": "${version}",
+	"name": "${name}",
+	"description": "${description}",
+	"authors": [
+		"Ezzenix"
+	],
+	"contact": {
+		"sources": "https://github.com/Ezzenix/SmoothGui",
+		"homepage": "https://modrinth.com/mod/smooth-gui",
+		"issues": "https://github.com/Ezzenix/SmoothGui/issues"
+	},
+	"license": "MIT",
+	"icon": "smoothgui.png",
+	"environment": "client",
+	"entrypoints": {
+		"main": [
+			"${group}.SmoothGui"
+		],
+		"modmenu": [
+			"${group}.impl.ModMenuImpl"
+		]
+	},
+	"mixins": [
+		"${id}.mixins.json"
+	],
+	"depends": {
+		"fabricloader": "*",
+		"minecraft": ">=${minecraftVersion}"
+	}
+}

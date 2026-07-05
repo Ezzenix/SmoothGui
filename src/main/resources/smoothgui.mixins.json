@@ -1,0 +1,27 @@
+{
+	"required": true,
+	"minVersion": "0.8",
+	"package": "com.ezzenix.smoothgui.mixin",
+	"refmap": "${id}.refmap.json",
+	"compatibilityLevel": "JAVA_17",
+	"mixins": [],
+	"client": [
+		"ConfigureScreenMixin",
+		"CreativeModeInventoryScreenMixin",
+		"EmiCompatMixin",
+		"GameRendererMixin",
+		"GraphicsMixin",
+		"GuiMixin",
+		"InventoryScreenMixin",
+		"MinecraftMixin",
+		"MouseHandlerMixin",
+		"ScreenMixin",
+		"accessor.GuiGraphicAccessor",
+		"accessor.GuiRenderStateAccessor"
+	],
+	"server": [],
+	"injectors": {
+		"defaultRequire": 1
+	}
+}
+
