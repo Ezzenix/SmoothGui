@@ -27,6 +27,7 @@ stonecutter {
 
         mc("1.20.1", "fabric", "forge")
 		mc("1.20.6", "fabric", "forge", "neoforge")
+		mc("1.21.0", "fabric", "forge", "neoforge")
 		mc("1.21.2", "fabric", "neoforge")
 		mc("1.21.3", "fabric", "forge", "neoforge")
 		mc("1.21.4", "fabric", "forge", "neoforge")

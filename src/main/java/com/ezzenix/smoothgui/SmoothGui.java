@@ -193,13 +193,9 @@ public class SmoothGui implements ModInitializer {
     /*public SmoothGui(final FMLJavaModLoadingContext context) {
         initialize();
 
-		//? if 1.20.2 {
-		/^net.minecraftforge.fml.ModLoadingContext.get().registerExtensionPoint(
-		^///? } else {
-		context.registerExtensionPoint(
-		//? }
+		net.minecraftforge.fml.ModLoadingContext.get().registerExtensionPoint(
 			ConfigScreenHandler.ConfigScreenFactory.class,
-			() -> new ConfigScreenHandler.ConfigScreenFactory((c, parent) -> new SmoothConfigScreen(parent))
+			() -> new ConfigScreenHandler.ConfigScreenFactory((c, parent) -> new ConfigScreen(parent))
 		);
     }
     *///? }

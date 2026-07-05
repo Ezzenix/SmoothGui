@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.1
+
+- Fix crash on 1.21 and 1.21.1
+
 ## 2.0.0
 
 - Add support for versions 26.2 and 1.20.6 to 1.21.9
