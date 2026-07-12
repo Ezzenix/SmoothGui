@@ -8,7 +8,7 @@
 	"client": [
 		"ConfigureScreenMixin",
 		"CreativeModeInventoryScreenMixin",
-		"EmiCompatMixin",
+		"compat.EmiCompatMixin",
 		"GameRendererMixin",
 		"GraphicsMixin",
 		"GuiMixin",

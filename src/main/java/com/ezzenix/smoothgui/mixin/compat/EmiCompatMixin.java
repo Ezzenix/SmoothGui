@@ -1,4 +1,4 @@
-package com.ezzenix.smoothgui.mixin;
+package com.ezzenix.smoothgui.mixin.compat;
 
 import com.llamalad7.mixinextras.injector.ModifyReturnValue;
 import org.spongepowered.asm.mixin.Mixin;

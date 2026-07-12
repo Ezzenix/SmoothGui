@@ -59,7 +59,7 @@ public class SmoothGui implements ModInitializer {
 	);
 
 	private static final Set<String> BLOCKED_SCREEN_NAMES = Set.of(
-		"RecipesGui" // JEI recipe gui
+
 	);
 
 	public static long lastScreenOpenedTime = 0;
@@ -86,7 +86,16 @@ public class SmoothGui implements ModInitializer {
 	public static void onScreenChanged(Screen oldScreen, Screen newScreen) {
 		if (newScreen == null) return;
 		long now = System.currentTimeMillis();
-		if (oldScreen != null && oldScreen.getClass().equals(newScreen.getClass()) && !ModConfig.repeatSameScreen) return; // opened new screen of same type
+
+		/* if screen is same type */
+		if (oldScreen != null && oldScreen.getClass().equals(newScreen.getClass()) && !ModConfig.repeatSameScreen) return;
+
+		/* curios mod compatibility */
+		String newName = newScreen.getClass().getSimpleName();
+		String oldName = oldScreen != null ? oldScreen.getClass().getSimpleName() : "";
+		if (newName.equals("CuriosScreen")) return;
+		if (newName.contains("InventoryScreen") && oldName.equals("CuriosScreen")) return;
+
 		SmoothGui.lastScreenChangedTime = now;
 		if (oldScreen == null) {
 			SmoothGui.lastScreenOpenedTime = now;
