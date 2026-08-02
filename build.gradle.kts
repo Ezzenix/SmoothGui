@@ -127,3 +127,16 @@ gradle.projectsEvaluated {
 		}
 	}
 }
+
+mcverify {
+	loader = mod.loader
+	serverAddress = "localhost"
+	if (mod.hasProp("supported_to")) {
+		versionRange {
+			start = mod.minecraftVersion
+			end = mod.prop("supported_to")
+		}
+	} else {
+		version = mod.minecraftVersion
+	}
+}

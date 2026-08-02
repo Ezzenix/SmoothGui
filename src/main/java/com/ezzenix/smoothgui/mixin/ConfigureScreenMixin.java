@@ -13,6 +13,7 @@ import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.narration.NarratableEntry;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
+import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.Unique;
@@ -25,32 +26,30 @@ import java.util.Objects;
 
 @Mixin(Screen.class)
 public abstract class ConfigureScreenMixin implements IConfigureScreen {
-	@Unique
-	private static final int LINE_HEIGHT = 9;
-	@Unique
-	Button smoothGui$button = null;
+	@Unique private static final int LINE_HEIGHT = 9;
+	@Unique Button smoothGui$button = null;
 
-	@Shadow protected Minecraft minecraft;
+	@Final @Shadow protected Minecraft minecraft;
 	@Shadow protected abstract <T extends GuiEventListener & NarratableEntry> T addWidget(T arg);
+	@Shadow protected abstract void removeWidget(GuiEventListener arg);
 
-	@Override
 	public void smoothGui$init() {
-		if (smoothGui$button == null || !self().children().contains(smoothGui$button)) {
+		boolean enabled = ModConfig.configMode && !SmoothGui.isScreenFullyBlocked(self());
+
+		if (enabled && (smoothGui$button == null || !self().children().contains(smoothGui$button))) {
 			smoothGui$button = Button.builder(buildButtonLabel(ModConfig.getScreenMode((self()))), b -> {
 				ModConfig.nextScreenMode(self());
 				b.setMessage(buildButtonLabel(ModConfig.getScreenMode(self())));
 			}).bounds(5, 27, 100, 20).build();
 			this.addWidget(smoothGui$button);
+		} else if (!enabled && smoothGui$button != null) {
+			this.removeWidget(smoothGui$button);
+			this.smoothGui$button = null;
 		}
 	}
 
-	@Override
 	public void smoothGui$extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
 		if (this.smoothGui$button == null) return;
-
-		boolean canEdit = ModConfig.configMode && !SmoothGui.isScreenFullyBlocked(self());
-		this.smoothGui$button.active = canEdit;
-		if (!canEdit) return;
 
 		this.smoothGui$button.extractRenderState(graphics, mouseX, mouseY, a);
 
