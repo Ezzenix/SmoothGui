@@ -1,7 +1,10 @@
 package com.ezzenix.smoothgui.config;
 
+import com.ezzenix.emlib.config.ConfigScreen;
+import com.ezzenix.emlib.config.EmConfig;
+import com.ezzenix.emlib.util.EmGraphics;
+import com.ezzenix.emlib.util.EmId;
 import com.ezzenix.smoothgui.SmoothGui;
-import com.ezzenix.smoothgui.lib.config.ConfigScreen;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -19,14 +22,16 @@ import net.minecraft.client.renderer.RenderPipelines;
 import net.minecraft.client.input.KeyEvent;
 
 public class SmoothConfigScreen extends ConfigScreen {
-	private static final Identifier CONTAINER_BACKGROUND = Identifier.tryParse("minecraft:textures/gui/container/generic_54.png");
+	private static final Identifier CONTAINER_BACKGROUND = EmId.withDefaultNamespace("textures/gui/container/generic_54.png");
 
 	private boolean showPreview = false;
 	private long previewStart = 0;
 	private Button previewButton;
 
-	public SmoothConfigScreen(Screen parent) {
-		super(parent);
+	private boolean lastConfigModeState = ModConfig.configMode;
+
+	public SmoothConfigScreen(Screen parent, EmConfig instance) {
+		super(parent, instance);
 	}
 
 	@Override
@@ -43,7 +48,7 @@ public class SmoothConfigScreen extends ConfigScreen {
 	}
 
 	private Component buildPreviewButtonMessage() {
-		return !this.showPreview ? Component.literal("Preview") : Component.literal("Stop");
+		return !this.showPreview ? Component.translatable("smoothgui.preview") : Component.translatable("smoothgui.stop");
 	}
 
 	@Override
@@ -86,6 +91,11 @@ public class SmoothConfigScreen extends ConfigScreen {
 	@Override
 	public void changed() {
 		this.previewStart = System.currentTimeMillis() + 700;
+
+		if (ModConfig.configMode != this.lastConfigModeState) {
+			IConfigureScreen.of(this).smoothgui$init();
+			this.lastConfigModeState = ModConfig.configMode;
+		}
 	}
 
 	private float getPreviewAnimationAlpha() {

@@ -13,14 +13,11 @@
 		"issues": "https://github.com/Ezzenix/SmoothGui/issues"
 	},
 	"license": "MIT",
-	"icon": "smoothgui.png",
+	"icon": "icon.png",
 	"environment": "client",
 	"entrypoints": {
 		"main": [
 			"${group}.SmoothGui"
-		],
-		"modmenu": [
-			"${group}.impl.ModMenuImpl"
 		]
 	},
 	"mixins": [

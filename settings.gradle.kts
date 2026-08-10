@@ -9,6 +9,7 @@ pluginManagement {
         maven("https://maven.architectury.dev")
         maven("https://maven.minecraftforge.net")
         maven("https://maven.neoforged.net/releases/")
+		maven("https://ezzenix.github.io/mcverify")
     }
 }
 
@@ -32,7 +33,7 @@ stonecutter {
 		mc("1.21.3", "fabric", "forge", "neoforge")
 		mc("1.21.4", "fabric", "forge", "neoforge")
 		mc("1.21.5", "fabric", "forge", "neoforge")
-		mc("1.21.6", "fabric", "forge", "neoforge")
+		mc("1.21.6", "fabric", "neoforge")
         mc("1.21.9", "fabric", "neoforge")
         mc("1.21.11", "fabric", "neoforge")
 		mc("26.1", "fabric", "neoforge")

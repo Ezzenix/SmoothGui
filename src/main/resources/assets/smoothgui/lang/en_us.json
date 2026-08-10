@@ -1,0 +1,46 @@
+{
+	"smoothgui.preview": "Preview",
+	"smoothgui.stop": "Stop",
+
+	"smoothgui.configmode.title": "SmoothGui Config",
+	"smoothgui.configmode.screen": "Screen",
+	"smoothgui.configmode.enabled": "Enabled",
+	"smoothgui.configmode.default": "Default",
+	"smoothgui.configmode.on": "Yes",
+	"smoothgui.configmode.off": "No",
+
+	"smoothgui.config._animation": "Animation",
+	"smoothgui.config.enableAnimation": "Enabled",
+	"smoothgui.config.animationTime": "Animation Duration",
+	"smoothgui.config.animationScale": "Animation Scale",
+	"smoothgui.config.animationStyle": "Easing Style",
+	"smoothgui.config.animationDirection": "Animation Direction",
+
+	"smoothgui.config._background": "Background",
+	"smoothgui.config.modifyBackground": "Enable Background",
+	"smoothgui.config.modifyBackground.tooltip": "Disable this if you are having compatibility issues with another mod and do not want this mod to touch the background at all.",
+	"smoothgui.config.backgroundOpacity": "Background Opacity",
+	"smoothgui.config.backgroundFadeTime": "Background Fade Time",
+	"smoothgui.config.alwaysBlurBackground": "Always Blur",
+	"smoothgui.config.alwaysBlurBackground.tooltip": "Should the vanilla blur effect behind menus be applied to all screens.",
+
+	"smoothgui.config._screens": "Screen Filter",
+	"smoothgui.config.repeatSameScreen": "Repeat Same Screen",
+	"smoothgui.config.repeatSameScreen.tooltip": "Should the animation play when opening a screen of the same type. For example when navigating menus on servers.",
+	"smoothgui.config.configMode": "Config Mode",
+	"smoothgui.config.configMode.tooltip": "Enable config mode to toggle which screens should be animated or not.",
+
+	"smoothgui.config.enum.AnimationDirection.UP": "Up",
+	"smoothgui.config.enum.AnimationDirection.DOWN": "Down",
+
+	"smoothgui.config.enum.EasingStyle.FLAT": "Flat",
+	"smoothgui.config.enum.EasingStyle.SINE": "Sine",
+	"smoothgui.config.enum.EasingStyle.QUAD": "Quad",
+	"smoothgui.config.enum.EasingStyle.CUBIC": "Cubic",
+	"smoothgui.config.enum.EasingStyle.QUART": "Quart",
+	"smoothgui.config.enum.EasingStyle.QUINT": "Quint",
+	"smoothgui.config.enum.EasingStyle.EXPO": "Expo",
+	"smoothgui.config.enum.EasingStyle.CIRC": "Circ",
+	"smoothgui.config.enum.EasingStyle.BACK": "Back",
+	"smoothgui.config.enum.EasingStyle.ELASTIC": "Elastic"
+}

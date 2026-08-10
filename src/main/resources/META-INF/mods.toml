@@ -11,7 +11,7 @@ authors = "Ezzenix"
 description = '''
 ${description}
 '''
-logoFile = "${id}/icon.png"
+logoFile = "icon.png"
 logoBlur = false
 clientSideOnly=true
 

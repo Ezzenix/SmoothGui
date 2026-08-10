@@ -2,11 +2,12 @@ package com.ezzenix.smoothgui;
 
 import java.util.Set;
 
+import com.ezzenix.emlib.config.EmConfig;
+import com.ezzenix.emlib.util.EmPort;
 import com.ezzenix.smoothgui.config.AnimationDirection;
 import com.ezzenix.smoothgui.config.ModConfig;
 import com.ezzenix.smoothgui.config.ScreenMode;
 import com.ezzenix.smoothgui.config.SmoothConfigScreen;
-import com.ezzenix.smoothgui.lib.config.ConfigScreen;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractSelectionList;
@@ -16,9 +17,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 //? if forge {
-/*import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import net.minecraftforge.client.ConfigScreenHandler;
+/*import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fml.common.Mod;
 
 @Mod(value = SmoothGui.MOD_ID)
 public class SmoothGui {
@@ -28,7 +28,6 @@ public class SmoothGui {
 /*import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.api.distmarker.Dist;
-import net.neoforged.neoforge.client.gui.IConfigScreenFactory;
 
 @Mod(value = SmoothGui.MOD_ID, dist = Dist.CLIENT)
 public class SmoothGui {
@@ -42,7 +41,7 @@ public class SmoothGui implements ModInitializer {
 
     public static final String MOD_ID = "smoothgui";
     public static final String MOD_NAME = "SmoothGui";
-    public static final Logger LOG = LoggerFactory.getLogger(MOD_NAME);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
 
 	private static final Set<Class<?>> BLOCKED_SCREEN_CLASSES = Set.of(
 		ChatScreen.class,
@@ -71,7 +70,8 @@ public class SmoothGui implements ModInitializer {
 	public static boolean applied = false;
 
 	private static void initialize() {
-		ModConfig.init(MOD_ID, ModConfig.class);
+		EmConfig.init(MOD_ID, ModConfig.class);
+		EmConfig.setScreenFactory(MOD_ID, SmoothConfigScreen::new);
 		ModConfig.configMode = false;
 	}
 
@@ -100,14 +100,6 @@ public class SmoothGui implements ModInitializer {
 		if (oldScreen == null) {
 			SmoothGui.lastScreenOpenedTime = now;
 		}
-	}
-
-	public static Screen getScreen() {
-		//? if >= 26.2 {
-		return Minecraft.getInstance().gui.screen();
-		//?} else {
-		/*return Minecraft.getInstance().screen;
-		*///?}
 	}
 
 	public static float getAlphaSince(long time, float animationTime) {
@@ -162,7 +154,7 @@ public class SmoothGui implements ModInitializer {
 
 	public static void push(GuiGraphicsExtractor graphics) {
 		if (!ModConfig.enableAnimation || applied || displacement == 0) return;
-		Screen screen = getScreen();
+		Screen screen = EmPort.screen();
 		if (screen == null) return;
 		applied = true;
 		//~ if >=1.21.6 'pushPose' -> 'pushMatrix'
@@ -201,18 +193,12 @@ public class SmoothGui implements ModInitializer {
 	//? if forge {
     /*public SmoothGui(final FMLJavaModLoadingContext context) {
         initialize();
-
-		net.minecraftforge.fml.ModLoadingContext.get().registerExtensionPoint(
-			ConfigScreenHandler.ConfigScreenFactory.class,
-			() -> new ConfigScreenHandler.ConfigScreenFactory((c, parent) -> new SmoothConfigScreen(parent))
-		);
     }
     *///? }
 
 	//? if neoforge {
     /*public SmoothGui(ModContainer container) {
         initialize();
-        container.registerExtensionPoint(IConfigScreenFactory.class, (c, parent) -> new SmoothConfigScreen(parent));
     }
     *///? }
 

@@ -1,44 +1,45 @@
 package com.ezzenix.smoothgui.config;
 
-import com.ezzenix.smoothgui.lib.config.BaseConfig;
+import com.ezzenix.emlib.config.EmConfig;
+import com.ezzenix.smoothgui.SmoothGui;
 import net.minecraft.client.gui.screens.Screen;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@BaseConfig.Config(title="Smooth Gui Config")
-public class ModConfig extends BaseConfig {
-	@Comment(name="Animation")
+@EmConfig.Config(title = SmoothGui.MOD_NAME)
+public class ModConfig extends EmConfig {
+	@Comment
 	public static Comment _animation;
-	@Entry(name="Enabled")
+	@Entry
 	public static boolean enableAnimation = true;
-	@Entry(name="Animation Duration", min=10, max=1000, suffix="ms")
+	@Entry(min=10, max=1000, isSlider=true, suffix="ms")
 	public static int animationTime = 220;
-	@Entry(name="Animation Scale", min=0.5, max=3)
+	@Entry(min=0.5, max=3,  isSlider=true)
 	public static double animationScale = 1;
-	@Entry(name="Easing Style")
+	@Entry
 	public static EasingStyle animationStyle = EasingStyle.BACK;
-	@Entry(name="Animation Direction")
+	@Entry
 	public static AnimationDirection animationDirection = AnimationDirection.DOWN;
 
-	@Comment(name="Background")
+	@Comment
 	public static Comment _background;
-	@Entry(name="Enable Background", desc="Disable this if you are having compatibility issues with another mod and do not want this mod to touch the background at all.")
+	@Entry
 	public static boolean modifyBackground = true;
-	@Entry(min=0, max=1)
+	@Entry(min=0, max=1, isSlider=true)
 	public static float backgroundOpacity = 0.65f;
-	@Entry(min=0, max=800, offText=true)
+	@Entry(min=0, max=800, isSlider=true, offText=true)
 	public static int backgroundFadeTime = 150;
 	//? if >=1.20.5 {
-	@Entry(name="Always Blur", desc="Should the vanilla blur effect behind menus be applied to all screens.")
+	@Entry
 	public static boolean alwaysBlurBackground = false;
 	//? }
 
-	@Comment(name="Screen Filter")
+	@Comment
 	public static Comment _screens;
-	@Entry(name="Repeat Same Screen", desc="Should the animation play when opening a screen of the same type. For example when navigating menus on servers.")
+	@Entry
 	public static boolean repeatSameScreen = false;
-	@Entry(name="Config Mode", desc="Enable config mode to toggle which screens should be animated or not.")
+	@Entry
 	public static boolean configMode = false;
 
 	@Entry @Hidden
@@ -69,7 +70,7 @@ public class ModConfig extends BaseConfig {
 			screensForceEnabled.remove(name);
 			screensForceDisabled.remove(name);
 		}
-		ModConfig.save();
+		EmConfig.save(SmoothGui.MOD_ID);
 	}
 
 }

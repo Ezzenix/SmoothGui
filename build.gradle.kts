@@ -1,9 +1,9 @@
 import gg.meza.stonecraft.mod
-import java.net.URI
 import java.nio.file.Files
 
 plugins {
     id("gg.meza.stonecraft")
+	id("com.ezzenix.mcverify") version "0.1.0"
 }
 
 val isDeobfuscated = stonecutter.current.parsed >= "26.1"
@@ -73,8 +73,8 @@ publishMods {
 }
 
 repositories {
-	mavenLocal()
-    maven { name = "Terraformers"; url = URI("https://maven.terraformersmc.com/") }
+	maven("https://maven.terraformersmc.com/")
+	maven("https://ezzenix.github.io/emlib")
 }
 
 dependencies {
@@ -87,28 +87,17 @@ dependencies {
 		else -> "modApi"
 	}
 
+	/* mixinextras already exists either in fabric or emlib */
 	compileOnly("io.github.llamalad7:mixinextras-common:0.5.4")
 	annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.4")
-	if (mod.isForge) {
-		implementation("io.github.llamalad7:mixinextras-forge:0.5.4")
-		include("io.github.llamalad7:mixinextras-forge:0.5.4")
-	}
-	if (mod.isNeoforge) {
-		implementation("io.github.llamalad7:mixinextras-neoforge:0.5.4")
-		include("io.github.llamalad7:mixinextras-neoforge:0.5.4")
-	}
 
-	if (mod.isFabric) {
-		if (mod.hasProp("deps.modmenu")) {
-			add(implementationConfiguration, "com.terraformersmc:modmenu:${mod.prop("deps.modmenu")}")
-		}
-	}
-
-	/*
-	val emlib = "com.ezzenix:emlib:0.0.1+${mod.minecraftVersion}-${mod.loader}";
+	val emlib = "com.ezzenix:emlib:1.0.0+${mod.prop("deps.emlib")}-${mod.loader}-SNAPSHOT";
 	add(implementationConfiguration, emlib)
 	include(emlib)
-	 */
+
+	if (mod.isFabric && mod.hasProp("deps.modmenu")) {
+		add(implementationConfiguration, "com.terraformersmc:modmenu:${mod.prop("deps.modmenu")}")
+	}
 }
 
 loom {
