@@ -61,17 +61,19 @@ public class SmoothConfigScreen extends ConfigScreen {
 		int imageHeight = 114 + rowCount * 18;
 
 		float alpha = getPreviewAnimationAlpha();
-		int offsetY = (int)SmoothGui.calculateDisplacement(alpha);
+		float displacement = SmoothGui.calculateDisplacement(alpha);
 
-		//? if <1.21.6 {
-		/*graphics.pose().pushPose();
-		graphics.pose().translate(0, 0, 200f);
-		*///? }
+		EmGraphics em = new EmGraphics(graphics);
+		em.pushMatrix();
 
+		//? if <1.21.6
+		//em.translate(0, 0, 200);
 		graphics.fill(0, 0, this.width, this.height, 0x32000000);
 
+		em.translate(0, -displacement);
+
 		int xo = (this.width - imageWidth) / 2;
-		int yo = (this.height - imageHeight) / 2 + offsetY;
+		int yo = (this.height - imageHeight) / 2;
 		//? if >=1.21.6 {
 		graphics.blit(RenderPipelines.GUI_TEXTURED, CONTAINER_BACKGROUND, xo, yo, 0.0F, 0.0F, imageWidth, rowCount * 18 + 17, 256, 256);
 		graphics.blit(RenderPipelines.GUI_TEXTURED, CONTAINER_BACKGROUND, xo, yo + rowCount * 18 + 17, 0.0F, 126.0F, imageWidth, 96, 256, 256);
@@ -83,9 +85,7 @@ public class SmoothConfigScreen extends ConfigScreen {
 		graphics.blit(CONTAINER_BACKGROUND, xo, yo + rowCount * 18 + 17, 0.0F, 126.0F, imageWidth, 96, 256, 256);
 		*///? }
 
-		//? if <1.21.6 {
-		/*graphics.pose().popPose();
-		*///? }
+		em.popMatrix();
 	}
 
 	@Override

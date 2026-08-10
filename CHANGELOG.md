@@ -6,7 +6,8 @@
 - Add localization support
 - Fix rendering issue with other mods during the animation
 - Mod now uses my library mod
-- Curios mod compatiblity
+- Curios mod compatibility
+- Fix preview in config screen jittering
 
 ## 2.0.1
 
