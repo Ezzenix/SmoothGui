@@ -1,5 +1,13 @@
 # Changelog
 
+## 2.0.2
+
+- Improve config mode for better compatibility with other mods
+- Add localization support
+- Fix rendering issue with other mods during the animation
+- Mod now uses my library mod
+- Curios mod compatiblity
+
 ## 2.0.1
 
 - Fix crash on 1.21 and 1.21.1
