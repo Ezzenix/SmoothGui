@@ -42,7 +42,7 @@ public class ScreenMixin {
 		SmoothGui.onRender((Screen)(Object)this);
 		SmoothGui.wrap(graphics, () -> original.call(graphics, mouseX, mouseY + (int)SmoothGui.displacement, a));
 		SmoothGui.onRenderEnd(graphics);
-		IConfigureScreen.of((Screen)(Object)this).smoothGui$extractRenderState(graphics, mouseX, mouseY, a);
+		IConfigureScreen.of((Screen)(Object)this).smoothgui$extractRenderState(graphics, mouseX, mouseY, a);
 	}
 	//~ if >=26.1 'render' -> 'extract'
 	@WrapMethod(method = "extractBackground")
@@ -68,7 +68,7 @@ public class ScreenMixin {
 		SmoothGui.onRender(screen);
 		SmoothGui.wrap(graphics, () -> original.call(screen, graphics, mouseX, mouseY + (int)SmoothGui.displacement, a));
 		SmoothGui.onRenderEnd(graphics);
-		IConfigureScreen.of(screen).smoothGui$extractRenderState(graphics, mouseX, mouseY, a);
+		IConfigureScreen.of(screen).smoothgui$extractRenderState(graphics, mouseX, mouseY, a);
 	}
 
 	@WrapMethod(method="renderBackground")
