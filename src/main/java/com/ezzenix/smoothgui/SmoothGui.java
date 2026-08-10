@@ -157,8 +157,6 @@ public class SmoothGui implements ModInitializer {
 		Screen screen = EmPort.screen();
 		if (screen == null) return;
 		applied = true;
-		//~ if >=1.21.6 'pushPose' -> 'pushMatrix'
-		graphics.pose().pushMatrix();
 		//~ if >=1.21.6 '(0, -displacement, 0)' -> '(0, -displacement)'
 		graphics.pose().translate(0, -displacement);
 	}
@@ -166,8 +164,8 @@ public class SmoothGui implements ModInitializer {
 	public static void pop(GuiGraphicsExtractor graphics) {
 		if (!applied) return;
 		applied = false;
-		//~ if >=1.21.6 'popPose' -> 'popMatrix'
-		graphics.pose().popMatrix();
+		//~ if >=1.21.6 '(0, displacement, 0)' -> '(0, displacement)'
+		graphics.pose().translate(0, displacement);
 	}
 
 	public static void wrap(GuiGraphicsExtractor graphics, Runnable runnable) {
