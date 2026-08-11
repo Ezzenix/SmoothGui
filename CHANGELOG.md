@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.3
+
+- Fix crash on Forge 1.20.1
+
 ## 2.0.2
 
 - Improve config mode for better compatibility with other mods

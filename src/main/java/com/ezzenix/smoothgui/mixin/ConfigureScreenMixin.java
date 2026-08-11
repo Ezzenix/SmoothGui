@@ -21,8 +21,10 @@ import org.spongepowered.asm.mixin.Unique;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -96,6 +98,20 @@ public abstract class ConfigureScreenMixin implements IConfigureScreen {
 	@Inject(method = "rebuildWidgets", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/screens/Screen;init()V", shift = At.Shift.AFTER))
 	private void onRebuild(CallbackInfo ci) {
 		this.smoothgui$init();
+	}
+
+	@Inject(method = "children", at = @At("RETURN"), cancellable = true)
+	private void onGetChildren(CallbackInfoReturnable<List<? extends GuiEventListener>> cir) {
+		if (ModConfig.configMode) {
+			Screen screen = (Screen) (Object) this;
+			Button configButton = IConfigureScreen.of(screen).smoothgui$getButton();
+			if (configButton != null && configButton.isActive()) {
+				List<GuiEventListener> list = new ArrayList<>(cir.getReturnValue());
+				list.remove(configButton);
+				list.add(0, configButton);
+				cir.setReturnValue(list);
+			}
+		}
 	}
 
 	@Unique

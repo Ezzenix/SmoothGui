@@ -7,7 +7,6 @@
 	"mixins": [],
 	"client": [
 		"ConfigureScreenMixin",
-		"ContainerEventHandlerMixin",
 		"CreativeModeInventoryScreenMixin",
 		"compat.EmiCompatMixin",
 		"GameRendererMixin",
