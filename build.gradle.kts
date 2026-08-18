@@ -91,7 +91,7 @@ dependencies {
 	compileOnly("io.github.llamalad7:mixinextras-common:0.5.4")
 	annotationProcessor("io.github.llamalad7:mixinextras-common:0.5.4")
 
-	val emlib = "com.ezzenix:emlib:1.0.0+${mod.prop("deps.emlib")}-${mod.loader}-SNAPSHOT";
+	val emlib = "com.ezzenix:emlib:1.0.1+${mod.prop("deps.emlib")}-${mod.loader}-SNAPSHOT";
 	add(implementationConfiguration, emlib)
 	include(emlib)
 
