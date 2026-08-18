@@ -58,7 +58,7 @@ public class SmoothGui implements ModInitializer {
 	);
 
 	private static final Set<String> BLOCKED_SCREEN_NAMES = Set.of(
-
+		"net.createmod.ponder.foundation.ui.PonderUI"
 	);
 
 	public static long lastScreenOpenedTime = 0;
@@ -128,7 +128,7 @@ public class SmoothGui implements ModInitializer {
 	}
 
 	public static boolean isScreenFullyBlocked(Screen screen) {
-		return (BLOCKED_SCREEN_CLASSES.contains(screen.getClass()) || BLOCKED_SCREEN_NAMES.contains(screen.getClass().getSimpleName()));
+		return (BLOCKED_SCREEN_CLASSES.contains(screen.getClass()) || BLOCKED_SCREEN_NAMES.contains(screen.getClass().getCanonicalName()));
 	}
 
 	public static boolean shouldAnimateScreen(Screen screen) {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.4
+
+- Fix issue with create mod ponder ui
+
 ## 2.0.3
 
 - Fix crash on Forge 1.20.1

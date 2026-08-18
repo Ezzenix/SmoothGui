@@ -1,5 +1,6 @@
 package com.ezzenix.smoothgui.mixin;
 
+import com.ezzenix.emlib.util.EmPort;
 import com.ezzenix.smoothgui.SmoothGui;
 import com.ezzenix.smoothgui.config.EasingStyle;
 import com.ezzenix.smoothgui.config.IConfigureScreen;
@@ -172,7 +173,7 @@ public class ScreenMixin {
 
 	@Unique
 	private void renderBackgroundBlur(GuiGraphicsExtractor graphics) {
-		if (!ModConfig.alwaysBlurBackground) return;
+		if (!ModConfig.alwaysBlurBackground || SmoothGui.isScreenFullyBlocked(EmPort.screen())) return;
 
 		//? if >=1.21.6 {
 		if(((GuiRenderStateAccessor)((GuiGraphicAccessor)graphics).smoothgui$getGuiRenderState()).smoothgui$getFirstStratumAfterBlur() != Integer.MAX_VALUE) {
