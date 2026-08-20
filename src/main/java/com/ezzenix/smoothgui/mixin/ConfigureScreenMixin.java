@@ -62,6 +62,8 @@ public abstract class ConfigureScreenMixin implements IConfigureScreen {
 	public void smoothgui$extractRenderState(GuiGraphicsExtractor graphics, int mouseX, int mouseY, float a) {
 		if (this.smoothgui$button == null) return;
 		Screen screen = (Screen)(Object)this;
+		String screenName = screen.getClass().getCanonicalName();
+		if (screenName == null) return;
 
 		//? if <1.21.6 {
 		/*graphics.pose().pushPose();
@@ -73,7 +75,7 @@ public abstract class ConfigureScreenMixin implements IConfigureScreen {
 		*///? }
 
 		drawLine(graphics, minecraft.font, Component.translatable("smoothgui.configmode.title"), 0);
-		drawLine(graphics, minecraft.font, Component.translatable("smoothgui.configmode.screen").append(": ").append(Component.literal(screen.getClass().getCanonicalName()).withStyle(ChatFormatting.AQUA)), 1);
+		drawLine(graphics, minecraft.font, Component.translatable("smoothgui.configmode.screen").append(": ").append(Component.literal(screenName).withStyle(ChatFormatting.AQUA)), 1);
 	}
 
 	@Unique

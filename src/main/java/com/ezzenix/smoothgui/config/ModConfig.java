@@ -48,9 +48,11 @@ public class ModConfig extends EmConfig {
 	public static Set<String> screensForceDisabled = new HashSet<>();
 
 	public static ScreenMode getScreenMode(Screen screen) {
-		if (screensForceEnabled.contains(screen.getClass().getCanonicalName())) {
+		String screenName = screen.getClass().getCanonicalName();
+		if (screenName == null) return ScreenMode.DEFAULT;
+		if (screensForceEnabled.contains(screenName)) {
 			return ScreenMode.ON;
-		} else if (screensForceDisabled.contains(screen.getClass().getCanonicalName())) {
+		} else if (screensForceDisabled.contains(screenName)) {
 			return ScreenMode.OFF;
 		} else {
 			return ScreenMode.DEFAULT;
@@ -58,17 +60,18 @@ public class ModConfig extends EmConfig {
 	}
 
 	public static void nextScreenMode(Screen screen) {
-		String name = screen.getClass().getCanonicalName();
+		String screenName = screen.getClass().getCanonicalName();
+		if (screenName == null) return;
 		ScreenMode nextMode = getScreenMode(screen).next();
 		if (nextMode.equals(ScreenMode.ON)) {
-			screensForceEnabled.add(name);
-			screensForceDisabled.remove(name);
+			screensForceEnabled.add(screenName);
+			screensForceDisabled.remove(screenName);
 		} else if (nextMode.equals(ScreenMode.OFF)) {
-			screensForceDisabled.add(name);
-			screensForceEnabled.remove(name);
+			screensForceDisabled.add(screenName);
+			screensForceEnabled.remove(screenName);
 		} else {
-			screensForceEnabled.remove(name);
-			screensForceDisabled.remove(name);
+			screensForceEnabled.remove(screenName);
+			screensForceDisabled.remove(screenName);
 		}
 		EmConfig.save(SmoothGui.MOD_ID);
 	}
