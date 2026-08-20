@@ -128,7 +128,9 @@ public class SmoothGui implements ModInitializer {
 	}
 
 	public static boolean isScreenFullyBlocked(Screen screen) {
-		return (BLOCKED_SCREEN_CLASSES.contains(screen.getClass()) || BLOCKED_SCREEN_NAMES.contains(screen.getClass().getCanonicalName()));
+		if (BLOCKED_SCREEN_CLASSES.contains(screen.getClass())) return true;
+		String name = screen.getClass().getCanonicalName();
+		return name != null && BLOCKED_SCREEN_NAMES.contains(name);
 	}
 
 	public static boolean shouldAnimateScreen(Screen screen) {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.5
+
+- Fix issue [#37](https://github.com/Ezzenix/SmoothGui/issues/37)
+
 ## 2.0.4
 
 - Fix issue with create mod ponder ui
