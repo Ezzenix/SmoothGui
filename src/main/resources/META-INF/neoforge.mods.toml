@@ -13,7 +13,11 @@ authors = "Ezzenix"
 description = '''
 ${description}
 '''
+#? if >=26.3 {
+#iconFile = "icon.png"
+#?} else {
 logoFile = "icon.png"
+#?}
 logoBlur = false
 
 [[mixins]]

@@ -13,12 +13,16 @@ public class ModConfig extends EmConfig {
 	public static Comment _animation;
 	@Option
 	public static boolean enableAnimation = true;
+	@Requires(option="enableAnimation", value="true")
 	@Option(min=10, max=1000, isSlider=true, suffix="ms")
 	public static int animationTime = 220;
+	@Requires(option="enableAnimation", value="true")
 	@Option(min=0.5, max=3,  isSlider=true)
 	public static double animationScale = 1;
+	@Requires(option="enableAnimation", value="true")
 	@Option
 	public static EasingStyle animationStyle = EasingStyle.BACK;
+	@Requires(option="enableAnimation", value="true")
 	@Option
 	public static AnimationDirection animationDirection = AnimationDirection.DOWN;
 
@@ -26,11 +30,14 @@ public class ModConfig extends EmConfig {
 	public static Comment _background;
 	@Option
 	public static boolean modifyBackground = true;
+	@Requires(option="modifyBackground", value="true")
 	@Option(min=0, max=1, isSlider=true)
 	public static float backgroundOpacity = 0.65f;
+	@Requires(option="modifyBackground", value="true")
 	@Option(min=0, max=800, isSlider=true, offText=true)
 	public static int backgroundFadeTime = 150;
 	//? if >=1.20.5 {
+	@Requires(option="modifyBackground", value="true")
 	@Option
 	public static boolean alwaysBlurBackground = false;
 	//? }

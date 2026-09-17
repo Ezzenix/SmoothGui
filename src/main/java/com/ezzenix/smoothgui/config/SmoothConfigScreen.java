@@ -5,12 +5,12 @@ import com.ezzenix.emlib.config.EmConfig;
 import com.ezzenix.emlib.util.EmGraphics;
 import com.ezzenix.emlib.util.EmId;
 import com.ezzenix.smoothgui.SmoothGui;
+import com.mojang.blaze3d.platform.InputConstants;
 import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.Identifier;
-import org.lwjgl.glfw.GLFW;
 
 //? if >=1.21.5
 import net.minecraft.client.renderer.RenderPipelines;
@@ -122,7 +122,7 @@ public class SmoothConfigScreen extends ConfigScreen {
 	//? } else {
 	/*public boolean keyPressed(int key, int j, int k) {
 	*///? }
-		if (showPreview && key == GLFW.GLFW_KEY_ESCAPE) {
+		if (showPreview && key == InputConstants.KEY_ESCAPE) {
 			showPreview = false;
 			this.previewButton.setMessage(buildPreviewButtonMessage());
 			return true;

@@ -1,5 +1,10 @@
 # Changelog
 
+## 2.0.6
+
+- Add 26.3 support
+- Make unused options hidden in the config screen when their required option is not enabled
+
 ## 2.0.5
 
 - Fix issue [#37](https://github.com/Ezzenix/SmoothGui/issues/37)
