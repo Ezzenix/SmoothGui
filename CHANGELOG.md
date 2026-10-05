@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.7
+
+- Fix crash on Forge 1.21
+
 ## 2.0.6
 
 - Add 26.3 support

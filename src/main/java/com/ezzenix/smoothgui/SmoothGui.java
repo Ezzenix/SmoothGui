@@ -191,7 +191,7 @@ public class SmoothGui implements ModInitializer {
 	}
 
 	//? if forge {
-    /*public SmoothGui(final FMLJavaModLoadingContext context) {
+    /*public SmoothGui() {
         initialize();
     }
     *///? }
