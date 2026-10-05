@@ -2,6 +2,7 @@
 
 ## 2.0.7
 
+- Fix crash on some NeoForge versions
 - Fix crash on Forge 1.21
 
 ## 2.0.6

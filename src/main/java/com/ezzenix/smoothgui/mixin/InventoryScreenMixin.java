@@ -33,7 +33,11 @@ public class InventoryScreenMixin {
 	}
 
 	//? <1.21.11 {
-	/*@WrapOperation(method = "renderEntityInInventoryFollowsMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;enableScissor(IIII)V"))
+	/*@WrapOperation(
+		//~ if neoforge 'renderEntityInInventoryFollowsMouse' -> 'renderEntityInInventoryFollowsAngle'
+		method = "renderEntityInInventoryFollowsMouse",
+		at = @At(value = "INVOKE", target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;enableScissor(IIII)V")
+	)
 	private static void wrapEnableScissor(GuiGraphicsExtractor graphics, int x0, int y0, int x1, int y1, Operation<Void> original) {
 		int displacement = (int) SmoothGui.displacement;
 		original.call(graphics, x0, y0 + displacement, x1, y1 + displacement);
