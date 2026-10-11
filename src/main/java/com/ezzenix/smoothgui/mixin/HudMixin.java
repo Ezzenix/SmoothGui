@@ -66,7 +66,7 @@ public class HudMixin {
 		float diff = target - smoothX;
 		smoothX = Math.abs(diff) < 1f
 			? target
-			: smoothX + diff * Math.min(deltaTime * ModConfig.hotbarSpeed, 1f);
+			: smoothX + diff * Math.min(deltaTime * (float)ModConfig.hotbarSpeed, 1f);
 
 		int leftX = (graphics.guiWidth() / 2) - 92;
 		return Math.round(leftX + smoothX);

@@ -31,7 +31,7 @@ public class ModConfig extends EmConfig {
 	@Option
 	public static boolean modifyBackground = true;
 	@Requires(option="modifyBackground", value="true")
-	@Option(min=0, max=1, isSlider=true)
+	@Option(min=0, max=1, isSlider=true, precision=100)
 	public static float backgroundOpacity = 0.65f;
 	@Requires(option="modifyBackground", value="true")
 	@Option(min=0, max=800, isSlider=true, offText=true)
@@ -55,8 +55,8 @@ public class ModConfig extends EmConfig {
 	public static Comment _hotbar;
 	@Option
 	public static boolean smoothHotbar = true;
-	@Option(min=5, max=50, isSlider=true, precision = 1)
-	public static float hotbarSpeed = 30f;
+	@Option(min=5, max=50, isSlider=true)
+	public static int hotbarSpeed = 35;
 
 	@Option @Hidden
 	public static Set<String> screensForceEnabled = new HashSet<>();
