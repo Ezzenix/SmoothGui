@@ -21,37 +21,36 @@ public class HudMixin {
 	private long lastRender = 0;
 
 	@ModifyArg(
-		//? if >=26.1 {
-		method = "extractItemHotbar",
-		//? } else if >= 1.20.6 {
-		/*method = "renderItemHotbar",
-		*///? } else
-		//method = "renderHotbar",
+		method =
+			//? if >=26.1 {
+			"extractItemHotbar",
+			//? } else if >= 1.20.6 {
+			/*"renderItemHotbar",
+			*///? } else
+			//"renderHotbar",
 		at = @At(
 			value = "INVOKE",
-			//? if >=26.1 {
-			target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
-			//? } else if >= 1.21.11 {
-			/*target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
-			*///? } else if >= 1.21.6 {
-			/*target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
-			*///? } else if >= 1.21.2 {
-			/*target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Ljava/util/function/Function;Lnet/minecraft/resources/Identifier;IIII)V",
-			*///? } else if >= 1.20.6 {
-			/*target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lnet/minecraft/resources/Identifier;IIII)V",
-			*///? } else
-			//target = "Lnet/minecraft/client/gui/GuiGraphicsExtractor;blit(Lnet/minecraft/resources/Identifier;IIIIII)V",
+			target =
+				//? if >=26.3 {
+				/*"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/renderpearl/api/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
+				*///? } else if >=26.1 {
+				"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
+				//? } else if >= 1.21.11 {
+				/*"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
+				*///? } else if >= 1.21.6 {
+				/*"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lcom/mojang/blaze3d/pipeline/RenderPipeline;Lnet/minecraft/resources/Identifier;IIII)V",
+				*///? } else if >= 1.21.2 {
+				/*"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Ljava/util/function/Function;Lnet/minecraft/resources/Identifier;IIII)V",
+				*///? } else if >= 1.20.6 {
+				/*"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blitSprite(Lnet/minecraft/resources/Identifier;IIII)V",
+				*///? } else
+				//"Lnet/minecraft/client/gui/GuiGraphicsExtractor;blit(Lnet/minecraft/resources/Identifier;IIIIII)V",
 			ordinal = 1
 		),
 		//~ if >=1.21.2 '1' -> '2'
 		index = 2
 	)
-	//? if >=1.21 {
 	private int mod(int originalValue, @Local GuiGraphicsExtractor graphics, @Local Player player) {
-	//? } else if >= 1.20.6 {
-	/*private int mod(int originalValue, @Local GuiGraphicsExtractor graphics, @Local Player player) {
-	*///? } else
-	//private int mod(int originalValue, @Local GuiGraphicsExtractor graphics, @Local Player player) {
 		if (!ModConfig.smoothHotbar) {
 			return originalValue;
 		}
