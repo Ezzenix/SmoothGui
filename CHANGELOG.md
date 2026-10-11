@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix reference map could not be read warning in logs
+
 ## 2.0.7
 
 - Fix crash on some NeoForge versions
