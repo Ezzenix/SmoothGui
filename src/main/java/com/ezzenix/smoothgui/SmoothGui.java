@@ -13,6 +13,7 @@ import net.minecraft.client.gui.GuiGraphicsExtractor;
 import net.minecraft.client.gui.components.AbstractSelectionList;
 import net.minecraft.client.gui.components.events.GuiEventListener;
 import net.minecraft.client.gui.screens.*;
+import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -143,6 +144,10 @@ public class SmoothGui implements ModInitializer {
 		Minecraft client = Minecraft.getInstance();
 		if (client.level == null && client.player == null) {
 			return false;
+		}
+
+		if (ModConfig.defaultOnlyInventories) {
+			return screen instanceof AbstractContainerScreen;
 		}
 
 		for (GuiEventListener widget : screen.children()) {

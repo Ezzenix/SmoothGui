@@ -26,7 +26,9 @@
 
 	"smoothgui.config._screens": "Screen Filter",
 	"smoothgui.config.repeatSameScreen": "Repeat Same Screen",
-	"smoothgui.config.repeatSameScreen.tooltip": "Should the animation play when opening a screen of the same type. For example when navigating menus on servers.",
+	"smoothgui.config.repeatSameScreen.tooltip": "Should the animation play when a screen of the same type reopens. For example when navigating menus on servers.",
+	"smoothgui.config.defaultOnlyInventories": "Only Inventories",
+	"smoothgui.config.defaultOnlyInventories.tooltip": "Only animate inventory screens by default.",
 	"smoothgui.config.configMode": "Config Mode",
 	"smoothgui.config.configMode.tooltip": "Enable config mode to toggle which screens should be animated or not.",
 

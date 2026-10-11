@@ -47,6 +47,8 @@ public class ModConfig extends EmConfig {
 	@Option
 	public static boolean repeatSameScreen = false;
 	@Option
+	public static boolean defaultOnlyInventories = false;
+	@Option
 	public static boolean configMode = false;
 
 	@Comment
