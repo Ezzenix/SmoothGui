@@ -7,16 +7,17 @@
 	"client": [
 		"ConfigureScreenMixin",
 		"CreativeModeInventoryScreenMixin",
-		"compat.EmiCompatMixin",
 		"GameRendererMixin",
 		"GraphicsMixin",
 		"GuiMixin",
+		"HudMixin",
 		"InventoryScreenMixin",
 		"MinecraftMixin",
 		"MouseHandlerMixin",
 		"ScreenMixin",
 		"accessor.GuiGraphicAccessor",
-		"accessor.GuiRenderStateAccessor"
+		"accessor.GuiRenderStateAccessor",
+		"compat.EmiCompatMixin"
 	],
 	"server": [],
 	"injectors": {

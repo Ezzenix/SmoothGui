@@ -30,6 +30,10 @@
 	"smoothgui.config.configMode": "Config Mode",
 	"smoothgui.config.configMode.tooltip": "Enable config mode to toggle which screens should be animated or not.",
 
+	"smoothgui.config._hotbar": "Hotbar",
+	"smoothgui.config.smoothHotbar": "Animate Hotbar",
+	"smoothgui.config.hotbarSpeed": "Animation Speed",
+
 	"smoothgui.config.enum.AnimationDirection.UP": "Up",
 	"smoothgui.config.enum.AnimationDirection.DOWN": "Down",
 

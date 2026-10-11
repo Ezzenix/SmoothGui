@@ -49,6 +49,13 @@ public class ModConfig extends EmConfig {
 	@Option
 	public static boolean configMode = false;
 
+	@Comment
+	public static Comment _hotbar;
+	@Option
+	public static boolean smoothHotbar = true;
+	@Option(min=5, max=50, isSlider=true, precision = 1)
+	public static float hotbarSpeed = 30f;
+
 	@Option @Hidden
 	public static Set<String> screensForceEnabled = new HashSet<>();
 	@Option @Hidden
