@@ -1,7 +1,10 @@
 # Changelog
 
-## Unreleased
+## 2.1.0
 
+- Add configurable hotbar animation
+- Add option to by default only animate inventory screens
+- Add Argentine Spanish translation ([#41](https://github.com/Ezzenix/smoothgui/pull/41))
 - Fix reference map could not be read warning in logs
 
 ## 2.0.7

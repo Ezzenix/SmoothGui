@@ -9,15 +9,15 @@
 	"smoothgui.configmode.on": "Yes",
 	"smoothgui.configmode.off": "No",
 
-	"smoothgui.config._animation": "Animation",
+	"smoothgui.config._animation": "Screen Animation",
 	"smoothgui.config.enableAnimation": "Enabled",
 	"smoothgui.config.animationTime": "Animation Duration",
 	"smoothgui.config.animationScale": "Animation Scale",
 	"smoothgui.config.animationStyle": "Easing Style",
 	"smoothgui.config.animationDirection": "Animation Direction",
 
-	"smoothgui.config._background": "Background",
-	"smoothgui.config.modifyBackground": "Enable Background",
+	"smoothgui.config._background": "Screen Background",
+	"smoothgui.config.modifyBackground": "Change Background",
 	"smoothgui.config.modifyBackground.tooltip": "Disable this if you are having compatibility issues with another mod and do not want this mod to touch the background at all.",
 	"smoothgui.config.backgroundOpacity": "Background Opacity",
 	"smoothgui.config.backgroundFadeTime": "Background Fade Time",
@@ -32,8 +32,8 @@
 	"smoothgui.config.configMode": "Config Mode",
 	"smoothgui.config.configMode.tooltip": "Enable config mode to toggle which screens should be animated or not.",
 
-	"smoothgui.config._hotbar": "Hotbar",
-	"smoothgui.config.smoothHotbar": "Animate Hotbar",
+	"smoothgui.config._hotbar": "Hotbar Animation",
+	"smoothgui.config.smoothHotbar": "Enabled",
 	"smoothgui.config.hotbarSpeed": "Animation Speed",
 
 	"smoothgui.config.enum.AnimationDirection.UP": "Up",
