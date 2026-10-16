@@ -1,0 +1,52 @@
+{
+	"smoothgui.preview": "Vista previa",
+	"smoothgui.stop": "Detener",
+
+	"smoothgui.configmode.title": "Configuración de SmoothGui",
+	"smoothgui.configmode.screen": "Pantalla",
+	"smoothgui.configmode.enabled": "Activado",
+	"smoothgui.configmode.default": "Predeterminado",
+	"smoothgui.configmode.on": "Sí",
+	"smoothgui.configmode.off": "No",
+
+	"smoothgui.config._animation": "Animación",
+	"smoothgui.config.enableAnimation": "Activar animaciones",
+	"smoothgui.config.animationTime": "Duración de la animación",
+	"smoothgui.config.animationScale": "Escala de la animación",
+	"smoothgui.config.animationStyle": "Estilo de transición",
+	"smoothgui.config.animationDirection": "Dirección de la animación",
+
+	"smoothgui.config._background": "Fondo",
+	"smoothgui.config.modifyBackground": "Modificar el fondo",
+	"smoothgui.config.modifyBackground.tooltip": "Desactivá esta opción si tenés problemas de compatibilidad con otro mod y no querés que este mod modifique el fondo de ninguna manera.",
+	"smoothgui.config.backgroundOpacity": "Opacidad del fondo",
+	"smoothgui.config.backgroundFadeTime": "Duración del desvanecimiento del fondo",
+	"smoothgui.config.alwaysBlurBackground": "Desenfocar siempre el fondo",
+	"smoothgui.config.alwaysBlurBackground.tooltip": "Indica si se debe aplicar el desenfoque original de Minecraft detrás de los menús en todas las pantallas.",
+
+	"smoothgui.config._screens": "Filtro de pantallas",
+	"smoothgui.config.repeatSameScreen": "Repetir animación en pantallas del mismo tipo",
+	"smoothgui.config.repeatSameScreen.tooltip": "Indica si la animación debe reproducirse al volver a abrir una pantalla del mismo tipo. Por ejemplo, al navegar por los menús de los servidores.",
+	"smoothgui.config.defaultOnlyInventories": "Solo inventarios",
+	"smoothgui.config.defaultOnlyInventories.tooltip": "Solo se animan las pantallas de inventario de forma predeterminada.",
+	"smoothgui.config.configMode": "Modo de configuración",
+	"smoothgui.config.configMode.tooltip": "Activá el modo de configuración para elegir qué pantallas deben tener animaciones y cuáles no.",
+
+	"smoothgui.config._hotbar": "Barra de acceso rápido",
+	"smoothgui.config.smoothHotbar": "Animar barra de acceso rápido",
+	"smoothgui.config.hotbarSpeed": "Velocidad de la animación",
+
+	"smoothgui.config.enum.AnimationDirection.UP": "Hacia arriba",
+	"smoothgui.config.enum.AnimationDirection.DOWN": "Hacia abajo",
+
+	"smoothgui.config.enum.EasingStyle.FLAT": "Lineal",
+	"smoothgui.config.enum.EasingStyle.SINE": "Senoidal",
+	"smoothgui.config.enum.EasingStyle.QUAD": "Cuadrático",
+	"smoothgui.config.enum.EasingStyle.CUBIC": "Cúbico",
+	"smoothgui.config.enum.EasingStyle.QUART": "Cuártico",
+	"smoothgui.config.enum.EasingStyle.QUINT": "Quíntico",
+	"smoothgui.config.enum.EasingStyle.EXPO": "Exponencial",
+	"smoothgui.config.enum.EasingStyle.CIRC": "Circular",
+	"smoothgui.config.enum.EasingStyle.BACK": "Retroceso",
+	"smoothgui.config.enum.EasingStyle.ELASTIC": "Elástico"
+}
